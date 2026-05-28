@@ -1,0 +1,49 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="900" viewBox="0 0 1600 900" fill="none">
+  <rect width="1600" height="900" fill="#f5f5f5"/>
+  <g stroke="#111" stroke-width="6" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M52 64C284 36 538 52 778 44C1001 36 1239 35 1548 55"/>
+    <path d="M56 834C372 854 660 862 977 848C1198 838 1376 833 1542 817"/>
+    <path d="M49 70C36 287 36 562 58 833"/>
+    <path d="M1548 58C1564 260 1564 562 1540 815"/>
+  </g>
+  <g font-family="'Comic Sans MS', 'Chalkboard SE', cursive" fill="#111">
+    <text x="102" y="130" font-size="54" font-weight="700">Scaffold Codex plugins fast</text>
+    <text x="106" y="182" font-size="30">A real output shape from the public plugin-creator skill</text>
+  </g>
+  <g stroke="#111" stroke-width="5" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M100 232C325 215 557 219 785 224"/>
+    <path d="M832 219C1000 211 1223 214 1488 231"/>
+  </g>
+  <g>
+    <rect x="102" y="258" width="616" height="520" rx="24" fill="#fff" stroke="#111" stroke-width="5"/>
+    <text x="136" y="318" font-family="'Comic Sans MS', 'Chalkboard SE', cursive" font-size="30" fill="#111">Command</text>
+    <rect x="132" y="346" width="556" height="172" rx="18" fill="#f0f0f0" stroke="#111" stroke-width="4"/>
+    <text x="156" y="394" font-family="Menlo, Monaco, monospace" font-size="24" fill="#111">python3 scripts/create_basic_plugin.py</text>
+    <text x="156" y="432" font-family="Menlo, Monaco, monospace" font-size="24" fill="#111">  demo-plugin --with-skills --with-assets</text>
+    <text x="156" y="470" font-family="Menlo, Monaco, monospace" font-size="24" fill="#111">  --with-scripts --with-marketplace</text>
+    <text x="136" y="570" font-family="'Comic Sans MS', 'Chalkboard SE', cursive" font-size="30" fill="#111">What it creates</text>
+    <text x="156" y="618" font-family="Menlo, Monaco, monospace" font-size="25" fill="#111">~/plugins/demo-plugin/</text>
+    <text x="184" y="654" font-family="Menlo, Monaco, monospace" font-size="25" fill="#111">.codex-plugin/plugin.json</text>
+    <text x="184" y="690" font-family="Menlo, Monaco, monospace" font-size="25" fill="#111">skills/</text>
+    <text x="184" y="726" font-family="Menlo, Monaco, monospace" font-size="25" fill="#111">scripts/</text>
+    <text x="184" y="762" font-family="Menlo, Monaco, monospace" font-size="25" fill="#111">assets/</text>
+  </g>
+  <g>
+    <rect x="774" y="258" width="722" height="520" rx="24" fill="#fff" stroke="#111" stroke-width="5"/>
+    <text x="810" y="318" font-family="'Comic Sans MS', 'Chalkboard SE', cursive" font-size="30" fill="#111">Marketplace + validation</text>
+    <rect x="812" y="346" width="646" height="164" rx="18" fill="#f0f0f0" stroke="#111" stroke-width="4"/>
+    <text x="838" y="394" font-family="Menlo, Monaco, monospace" font-size="23" fill="#111">~/.agents/plugins/marketplace.json</text>
+    <text x="838" y="432" font-family="Menlo, Monaco, monospace" font-size="23" fill="#111">{</text>
+    <text x="864" y="466" font-family="Menlo, Monaco, monospace" font-size="23" fill="#111">"name": "demo-plugin",</text>
+    <text x="864" y="500" font-family="Menlo, Monaco, monospace" font-size="23" fill="#111">"path": "./plugins/demo-plugin"</text>
+    <text x="838" y="534" font-family="Menlo, Monaco, monospace" font-size="23" fill="#111">}</text>
+    <text x="810" y="590" font-family="'Comic Sans MS', 'Chalkboard SE', cursive" font-size="30" fill="#111">Final check</text>
+    <rect x="812" y="618" width="646" height="112" rx="18" fill="#f0f0f0" stroke="#111" stroke-width="4"/>
+    <text x="838" y="664" font-family="Menlo, Monaco, monospace" font-size="22" fill="#111">python3 scripts/validate_plugin.py</text>
+    <text x="838" y="700" font-family="Menlo, Monaco, monospace" font-size="22" fill="#111">  "$HOME/plugins/demo-plugin"</text>
+  </g>
+  <g stroke="#111" stroke-width="5" stroke-linecap="round">
+    <path d="M720 437C754 433 770 431 798 428"/>
+    <path d="M789 414L820 428L787 443"/>
+  </g>
+</svg>
