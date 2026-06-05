@@ -1,51 +1,51 @@
-# Scaffold Codex Plugins Fast
+# Codex Plugin Creator
 
-`codex-plugin-creator` is a cleaned public extraction of Adam Holter's working `plugin-creator` skill for Codex.
+> Deterministic, local-first scaffolding and manifest validation for Codex plugins.
 
-It gives you a repeatable way to scaffold local Codex plugins with:
-
-- a valid `.codex-plugin/plugin.json`
-- optional `skills/`, `scripts/`, `assets/`, `.mcp.json`, and `.app.json`
-- a matching marketplace entry when you want the plugin to show up in Codex UI
-- a validator that catches bad manifest shape before you hand the plugin back
+`codex-plugin-creator` is a clean, public extraction of a working `plugin-creator` skill for Codex. It helps you build and test local Codex plugins reliably by codifying directory shape rules and manifest contracts into a repeatable workspace script.
 
 ![Preview](assets/preview.svg)
 
-## Why This Exists
+## Why It Exists
 
-Codex plugin work gets messy fast when every new plugin starts from scratch.
+Codex plugin development can fail silently due to subtle packaging errors. A plugin might not load or run because of:
 
-The failure mode is usually not the idea. It is the packaging:
+- incorrect directory structure, such as a missing or misplaced `.codex-plugin/` directory
+- malformed manifest fields or non-semver version strings in `plugin.json`
+- mismatched marketplace registration keys that prevent local loading
+- leftover placeholders such as `[TODO: ...]` in skills or descriptions
 
-- wrong folder shape
-- stale or missing manifest fields
-- marketplace entries that do not match the plugin name
-- unsupported keys that validation rejects later
-
-This skill makes plugin setup deterministic and keeps the rules close to the scaffold.
+This tool makes plugin setup deterministic, keeping standard structures and validation contracts local to your workspace.
 
 ## What You Get
 
-- `SKILL.md`: the installable Codex skill
+- `SKILL.md`: the installable Codex skill configuration
 - `scripts/create_basic_plugin.py`: scaffold a plugin root and optional marketplace entry
 - `scripts/validate_plugin.py`: validate the generated plugin against the expected manifest contract
-- `references/plugin-json-spec.md`: exact sample shapes and field notes
+- `references/plugin-json-spec.md`: exact sample shapes and field reference notes
 - `agents/openai.yaml`: Codex skill metadata
-- `assets/preview.svg`: a truthful preview diagram based on the generated output
+- `assets/preview.svg`: process preview diagram
 
 ## Quick Start
 
-Install into your Codex skills directory:
+### 1. Install to your local Codex skills
 
 ```bash
 mkdir -p "${CODEX_HOME:-$HOME/.codex}/skills"
 cp -R codex-plugin-creator "${CODEX_HOME:-$HOME/.codex}/skills/plugin-creator"
 ```
 
+### 2. Scaffold a new plugin
+
 From the installed skill directory:
 
 ```bash
 python3 scripts/create_basic_plugin.py my-plugin --with-marketplace
+```
+
+### 3. Validate before ingestion
+
+```bash
 python3 scripts/validate_plugin.py "$HOME/plugins/my-plugin"
 ```
 
@@ -93,7 +93,7 @@ The bundled validator checks for:
 
 ## Security And Privacy
 
-This public extraction does not include API keys, OAuth material, cookies, browser profiles, local session data, synced private notes, or Adam-specific project state.
+This public extraction does not include API keys, OAuth material, cookies, browser profiles, local session data, synced private notes, or maintainer-specific project state.
 
 The default scaffold targets generic local paths like `~/plugins` and `~/.agents/plugins/marketplace.json`. Those are defaults used by the tool, not personal machine identifiers.
 
