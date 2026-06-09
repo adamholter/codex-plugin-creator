@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.1.2
+
+- Synced the public extraction with the latest local skill behavior.
+- Added `scripts/read_marketplace_name.py` and `scripts/update_plugin_cachebuster.py`.
+- Added `references/installing-and-updating.md` plus README coverage for the local update loop.
+
 ## 0.1.1
 
 - Polished the public README headline and opening section for a cleaner social-share screenshot.
