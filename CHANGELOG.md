@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.1.3
+
+- Reject path-like values passed as the first scaffold argument and point callers to `--path` instead of silently normalizing filesystem paths into plugin names.
+- Tightened the README opening around the local scaffold -> validate -> reload loop.
+- Reworked `assets/preview.svg` into a simpler black-and-white share graphic grounded in the real commands this repo exposes.
+
 ## 0.1.2
 
 - Synced the public extraction with the latest local skill behavior.

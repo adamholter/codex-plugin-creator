@@ -30,6 +30,18 @@ def normalize_plugin_name(plugin_name: str) -> str:
     return normalized
 
 
+def reject_path_like_plugin_name(raw_plugin_name: str) -> None:
+    stripped = raw_plugin_name.strip()
+    if not stripped:
+        return
+    if "/" in stripped or "\\" in stripped:
+        raise ValueError(
+            "Plugin name must be a name like 'demo-plugin', not a filesystem path. "
+            "Pass the plugin name as the first argument and use --path to choose the parent "
+            "directory."
+        )
+
+
 def validate_plugin_name(plugin_name: str) -> None:
     if not plugin_name:
         raise ValueError("Plugin name must include at least one letter or digit.")
@@ -257,6 +269,7 @@ def parse_args() -> argparse.Namespace:
 def main() -> None:
     args = parse_args()
     raw_plugin_name = args.plugin_name
+    reject_path_like_plugin_name(raw_plugin_name)
     plugin_name = normalize_plugin_name(raw_plugin_name)
     if plugin_name != raw_plugin_name:
         print(f"Note: Normalized plugin name from '{raw_plugin_name}' to '{plugin_name}'.")

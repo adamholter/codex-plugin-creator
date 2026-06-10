@@ -1,21 +1,20 @@
 # Codex Plugin Creator
 
-> Deterministic, local-first scaffolding and manifest validation for Codex plugins.
+> Deterministic, local-first scaffolding, validation, and reload loops for Codex plugins.
 
-`codex-plugin-creator` is a clean, public extraction of a working `plugin-creator` skill for Codex. It helps you build and test local Codex plugins reliably by codifying directory shape rules and manifest contracts into a repeatable workspace script.
+`codex-plugin-creator` packages the boring but failure-prone parts of Codex plugin work into a small local toolkit: scaffold the right folder shape, validate the manifest contract, read the active marketplace name, and bump a cachebuster when you need Codex to reload a local plugin cleanly.
 
 ![Preview](assets/preview.svg)
 
-## Why It Exists
+## Why It Matters
 
-Codex plugin development can fail silently due to subtle packaging errors. A plugin might not load or run because of:
+Codex plugin loading can fail silently when a plugin has small structural mismatches or manifest issues.
 
-- incorrect directory structure, such as a missing or misplaced `.codex-plugin/` directory
-- malformed manifest fields or non-semver version strings in `plugin.json`
-- mismatched marketplace registration keys that prevent local loading
-- leftover placeholders such as `[TODO: ...]` in skills or descriptions
+Rather than troubleshooting ingestion issues via trial-and-error, this tool keeps validation contracts and registration mechanics completely local and reproducible:
+- **Structural Integrity**: Automatically scaffolds standard directory shapes with files placed exactly where Codex expects them.
+- **Contract Verification**: Validates manifest files (`plugin.json`) against schema requirements, SemVer constraints, and checks for remaining draft placeholders.
+- **Reload Loop**: Bumps version tags with a local cachebuster suffix (`+codex.<timestamp>`) so you can reinstall an edited local plugin without guessing which stale version Codex is still holding.
 
-This tool makes plugin setup deterministic, keeping standard structures and validation contracts local to your workspace.
 
 ## What You Get
 
@@ -46,6 +45,8 @@ From the installed skill directory:
 python3 scripts/create_basic_plugin.py my-plugin --with-marketplace
 ```
 
+The first argument is the plugin name, not an output path. Use `--path` when you want the scaffold written somewhere other than `~/plugins`.
+
 ### 3. Validate before ingestion
 
 ```bash
@@ -63,6 +64,7 @@ Running:
 
 ```bash
 python3 scripts/create_basic_plugin.py demo-plugin \
+  --path "$HOME/plugins" \
   --with-skills --with-scripts --with-assets --with-marketplace
 ```
 
