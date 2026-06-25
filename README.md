@@ -113,6 +113,7 @@ The bundled validator checks for:
 - non-semver versions
 - missing interface metadata
 - broken asset paths
+- inline `mcpServers` objects or `.mcp.json` companion files with malformed server entries
 - leftover `[TODO: ...]` placeholders
 
 The scaffold and update helpers also keep the marketplace path and cachebuster flow consistent

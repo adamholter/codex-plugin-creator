@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.1.4
+
+- Synced the public manifest reference with the current plugin contract, including inline `mcpServers` support.
+- Updated `scripts/validate_plugin.py` to accept either inline MCP server objects or the `.mcp.json` companion file while preserving stricter app-manifest checks.
+- Kept the public scaffold's path-like plugin-name guard so bad first-argument input still fails early with a useful message.
+
 ## 0.1.3
 
 - Reject path-like values passed as the first scaffold argument and point callers to `--path` instead of silently normalizing filesystem paths into plugin names.
