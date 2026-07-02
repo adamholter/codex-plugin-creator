@@ -1,5 +1,10 @@
 # Changelog
 
+## 0.1.5
+
+- Synced the public manifest reference and validator with the current contract, which no longer accepts `interface.logoDark`.
+- Kept the scaffold guard that rejects filesystem paths passed as the plugin name and points callers to `--path`.
+
 ## 0.1.4
 
 - Synced the public manifest reference with the current plugin contract, including inline `mcpServers` support.
